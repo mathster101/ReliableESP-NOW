@@ -4,7 +4,7 @@
 #include <cstring>
 
 #define PDATA_SIZE 150
-#define TIMEOUT 100
+#define TIMEOUT 50
 
 typedef uint8_t byte;
 
@@ -36,6 +36,7 @@ public:
     bool init();
     int sendData(void *data, int size);
     int receiveData(byte **data);
+    bool isDataAvailable();
     SenderBasic esp;
 
 private:

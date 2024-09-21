@@ -222,3 +222,9 @@ int reliableConnection::receiveData(byte **data)
     }
     return 0;
 }
+
+bool reliableConnection::isDataAvailable()
+{
+    // need to write fn to expose buffer size in sendNow
+    return false;
+}
