@@ -161,6 +161,8 @@ int reliableConnection::receiveData(byte **data)
         ackPacket ack;
         int numBytes;
         packet = (dataPacket *)esp.receive(numBytes, TIMEOUT);
+        // Serial.println("inside this loop thing");
+        // Serial.println(numBytes);
         switch (numBytes)
         {
         case -1:
@@ -168,7 +170,7 @@ int reliableConnection::receiveData(byte **data)
         {
             // Serial.println("data packet timeout");
             failureCounter += 1;
-            if (failureCounter > 10 && latestPacketId > 0)
+            if (failureCounter > 10 && latestPacketId >= 0)
             {
                 // Serial.println("total data packet timeout");
                 // printf("Total timeout...exiting\n");
